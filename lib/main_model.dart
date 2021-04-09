@@ -1,13 +1,10 @@
 import 'package:flutter/cupertino.dart';
 
-class MainModel extends ChangeNotifier{
-  String hungryText = 'おなかすいた';
+class MainModel extends ChangeNotifier {
+  String welcomeText = 'ようこそ図書館へ';
 
-  void changeHungryText(){
-    hungryText = '満腹';
-    notifyListeners(
-
-    );
+  void changeHungryText() {
+    welcomeText = 'またおこしください';
+    notifyListeners();
   }
 }
-

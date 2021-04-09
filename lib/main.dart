@@ -18,46 +18,38 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter_Demo',
       home: ChangeNotifierProvider<MainModel>(
-        create: (_)=> MainModel(),
+        create: (_) => MainModel(),
         child: Scaffold(
           appBar: AppBar(
-            title:Column(
-              children:[
+            title: Column(
+              children: [
                 Text(
                   'ぎょうえいのアプリケーション',
                 ),
               ],
             ),
           ),
-          body: Consumer<MainModel>(
-            builder: (context, model, child) {
-              return Center(
-                child: Column(
-                  children:[
-                    Text(
-                        model.hungryText,
-                        style: TextStyle(
-                            fontSize: 30
-                        ),
+          body: Consumer<MainModel>(builder: (context, model, child) {
+            return Center(
+              child: Column(children: [
+                Text(
+                  model.welcomeText,
+                  style: TextStyle(fontSize: 30),
                 ),
-                        RaisedButton(
-                          child: Text(
-                              'ボタン'
-                          ),
-                          onPressed: (){
-                            // todo ここで何かする
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => BookList()),
-                            );
-                            model.changeHungryText();
-                          },
-                        ),
-                  ]
+                RaisedButton(
+                  child: Text('ボタン'),
+                  onPressed: () {
+                    // todo ここで何かする
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => BookListPage()),
+                    );
+                    model.changeHungryText();
+                  },
                 ),
-              );
-            }
-          ),
+              ]),
+            );
+          }),
         ),
       ),
     );
