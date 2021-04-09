@@ -44,7 +44,7 @@ class MyApp extends StatelessWidget {
                       context,
                       MaterialPageRoute(builder: (context) => BookListPage()),
                     );
-                    model.changeHungryText();
+                    model.changeWelcomeText();
                   },
                 ),
               ]),
