@@ -30,7 +30,7 @@ android {
     compileSdkVersion 30
 
     sourceSets {
-        main.java.srcDirs += 'src/main/kotlin'
+        main.java.srcDirs += 'src/presentation.main/kotlin'
     }
 
     defaultConfig {
