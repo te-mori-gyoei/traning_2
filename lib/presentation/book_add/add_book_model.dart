@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_firebase/domain/book.dart';
 
 class AddBookModel extends ChangeNotifier {
-  late String bookTitle = '';
+  String bookTitle = '';
 
   Future addBookToFirebase() async {
     if (bookTitle.isEmpty) {
@@ -13,6 +13,17 @@ class AddBookModel extends ChangeNotifier {
       {
         'title': bookTitle,
         'create': Timestamp.now(),
+      },
+    );
+  }
+
+  Future updateBook(Book book) async {
+    final document =
+        FirebaseFirestore.instance.collection('books').doc(book.documentID);
+    await document.update(
+      {
+        'title': bookTitle,
+        'updateAt': Timestamp.now(),
       },
     );
   }
