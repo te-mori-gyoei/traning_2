@@ -2,6 +2,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_firebase/presentation/book_list/book_list_page.dart';
 import 'package:flutter_firebase/presentation/main/main_model.dart';
+import 'package:flutter_firebase/presentation/signup/signup_model.dart';
+import 'package:flutter_firebase/presentation/signup/signup_page.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
@@ -42,7 +44,7 @@ class MyApp extends StatelessWidget {
                     // todo ここで何かする
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => BookListPage()),
+                      MaterialPageRoute(builder: (context) => SignUpPage()),
                     );
                     model.changeWelcomeText();
                   },
