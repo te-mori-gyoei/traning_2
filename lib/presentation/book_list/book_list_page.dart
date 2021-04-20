@@ -20,7 +20,12 @@ class BookListPage extends StatelessWidget {
             final listTiles = books
                 .map(
                   (book) => ListTile(
-                    title: Text(book.title),
+                    leading: Image.network(book.imageURL),
+                    title: Text(
+                      book.title,
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.w300),
+                    ),
                     trailing: IconButton(
                       icon: Icon(Icons.edit),
                       iconSize: 25,
@@ -93,23 +98,6 @@ class BookListPage extends StatelessWidget {
       BuildContext context, BookListModel model, Book book) async {
     try {
       await model.deleteBook(book);
-      // showDialog(
-      //   context: context,
-      //   builder: (BuildContext context) {
-      //     return AlertDialog(
-      //       title: Text('削除しました'),
-      //       actions: <Widget>[
-      //         // コンテンツ領域
-      //         FlatButton(
-      //           child: Text('OK'),
-      //           onPressed: () async {
-      //             Navigator.of(context).pop();
-      //           },
-      //         ),
-      //       ],
-      //     );
-      //   },
-      // );
       await model.fetchBooks();
     } catch (e) {
       showDialog(

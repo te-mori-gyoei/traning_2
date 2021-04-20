@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_firebase/presentation/book_list/book_list_page.dart';
+import 'package:flutter_firebase/presentation/login/login_page.dart';
 import 'package:flutter_firebase/presentation/main/main_model.dart';
 import 'package:flutter_firebase/presentation/signup/signup_model.dart';
 import 'package:flutter_firebase/presentation/signup/signup_page.dart';
@@ -39,12 +40,34 @@ class MyApp extends StatelessWidget {
                   style: TextStyle(fontSize: 30),
                 ),
                 RaisedButton(
-                  child: Text('ボタン'),
+                  child: Text('本一覧'),
+                  onPressed: () {
+                    // todo ここで何かする
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => BookListPage()),
+                    );
+                    model.changeWelcomeText();
+                  },
+                ),
+                RaisedButton(
+                  child: Text('新規登録'),
                   onPressed: () {
                     // todo ここで何かする
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => SignUpPage()),
+                    );
+                    model.changeWelcomeText();
+                  },
+                ),
+                RaisedButton(
+                  child: Text('ログイン'),
+                  onPressed: () {
+                    // todo ここで何かする
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => LoginPage()),
                     );
                     model.changeWelcomeText();
                   },
